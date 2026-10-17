@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbería Aurora | Corte y barba</title>
+<meta name="description" content="Barbería Aurora: corte desde 18€, barba 8€ y promo de corte + barba. Reserva por WhatsApp.">
+<style>
+  :root{--vino:#7a2826;--vino2:#5e1d1b;--crema:#faf6ee;--blanco:#fffdf8;--tinta:#2b1a1a;--suave:#6b5a56;--linea:#e4d9c8}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--crema);color:var(--tinta);font:17px/1.65 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+  .wrap{width:100%;max-width:760px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.12;margin:0}
+  a:focus-visible{outline:3px solid var(--vino);outline-offset:3px}
+  .boton{display:inline-block;background:var(--crema);color:var(--vino);padding:15px 28px;border-radius:4px;text-decoration:none;font-weight:700}
+  .boton:hover{background:#fff}
+  .boton.vino{background:var(--vino);color:var(--crema)}
+  .boton.vino:hover{background:var(--vino2)}
+
+  /* Menú */
+  .menu{position:sticky;top:0;z-index:10;background:var(--tinta);color:var(--crema)}
+  .menu .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .menu strong{font-family:Georgia,serif;font-size:1.15rem}
+  .menu a{color:var(--crema);text-decoration:none;font-size:15px;border-bottom:1px solid var(--crema);padding-bottom:2px}
+
+  /* Portada */
+  .portada{background:var(--vino);color:var(--crema);padding:72px 0 64px}
+  .portada h1{font-size:clamp(2.6rem,10vw,4.4rem);max-width:9em}
+  .portada p{font-size:1.15rem;max-width:28em;margin:22px 0 32px;color:#f0dcd6}
+  .poste{height:14px;background:repeating-linear-gradient(115deg,var(--vino) 0 18px,var(--crema) 18px 36px,var(--tinta) 36px 54px,var(--crema) 54px 72px)}
+
+  /* Promo */
+  .promo{background:var(--blanco);border-bottom:1px solid var(--linea)}
+  .promo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px}
+  .promo b{font-family:Georgia,serif;font-size:1.25rem;display:block}
+  .promo span{color:var(--suave);font-size:.95rem}
+  .promo .grande{font-family:Georgia,serif;font-size:2.4rem;color:var(--vino);white-space:nowrap;font-weight:700}
+
+  section{padding:64px 0}
+  h2{font-size:2rem;margin-bottom:10px}
+  .sub{color:var(--suave);margin:0 0 28px;max-width:34em}
+
+  /* Servicios */
+  .serv{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px solid var(--linea)}
+  .serv:first-of-type{border-top:1px solid var(--linea)}
+  .serv h3{font-size:1.35rem;margin-bottom:2px}
+  .serv p{margin:0;color:var(--suave);font-size:.95rem}
+  .serv .p{font-family:Georgia,serif;font-size:1.7rem;color:var(--vino);white-space:nowrap}
+  .serv.combo{background:var(--blanco);padding:20px 16px;border:1px solid var(--vino);border-radius:8px;margin-top:16px}
+
+  /* Por qué */
+  .porque{background:var(--tinta);color:var(--crema)}
+  .porque .sub{color:#d3c7bf}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .cols h3{font-size:1.2rem;margin-bottom:6px;color:var(--crema)}
+  .cols p{margin:0;font-size:.95rem;color:#d3c7bf}
+  .cols div{border-top:2px solid var(--vino);padding-top:14px}
+
+  /* Horarios */
+  .horas{max-width:420px}
+  .horas div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--linea);font-size:1.05rem}
+  .horas div:first-child{border-top:1px solid var(--linea)}
+  .horas b{font-family:Georgia,serif}
+
+  /* Opiniones */
+  .opiniones{background:var(--blanco)}
+  .opinion{border-left:3px solid var(--vino);padding:4px 0 4px 20px;margin:0 0 26px;max-width:36em}
+  .opinion p{margin:0 0 6px;font-family:Georgia,serif;font-size:1.15rem}
+  .opinion span{font-size:.9rem;color:var(--suave)}
+
+  /* Reserva */
+  .reserva{background:var(--vino);color:var(--crema);text-align:center}
+  .reserva p{margin:0 auto 28px;max-width:28em;color:#f0dcd6}
+  footer{padding:26px 0 90px;font-size:14px;color:var(--suave);text-align:center}
+
+  .wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#1f8f55;color:#fff;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:20}
+
+  @media (max-width:560px){
+    .cols{grid-template-columns:1fr}
+    .promo .wrap{flex-direction:column;align-items:flex-start;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="menu"><div class="wrap"><strong>Barbería Aurora</strong><a href="#reserva">Reservar</a></div></nav>
+
+<header class="portada">
+  <div class="wrap">
+    <h1>Corte y barba con estilo, sin esperas</h1>
+    <p>Atención con cita previa, buen ambiente y el acabado que buscas. Reserva en un minuto por WhatsApp.</p>
+    <a class="boton" href="#reserva">Reservar mi cita</a>
+  </div>
+</header>
+<div class="poste" aria-hidden="true"></div>
+
+<div class="promo"><div class="wrap">
+  <div><b>Promo de la semana</b><span>Corte + barba, de lunes a jueves</span></div>
+  <div class="grande">15€</div>
+</div></div>
+
+<main>
+  <section id="servicios"><div class="wrap">
+    <h2>Servicios y precios</h2>
+    <p class="sub">Precios claros, sin cargos extra.</p>
+    <div class="serv"><div><h3>Corte</h3><p>Corte a tijera o máquina, con acabado perfilado</p></div><div class="p">18€</div></div>
+    <div class="serv"><div><h3>Barba</h3><p>Arreglo y perfilado con toalla caliente</p></div><div class="p">8€</div></div>
+    <div class="serv combo"><div><h3>Corte + barba</h3><p>El pack completo. Lunes a jueves, solo 15€</p></div><div class="p">20€</div></div>
+  </div></section>
+
+  <section class="porque"><div class="wrap">
+    <h2>Por qué elegirnos</h2>
+    <p class="sub">Lo que nuestros clientes valoran más.</p>
+    <div class="cols">
+      <div><h3>Con cita</h3><p>Tu hora reservada, sin hacer cola.</p></div>
+      <div><h3>Buen acabado</h3><p>Detalle en cada corte y en cada perfilado.</p></div>
+      <div><h3>Precio justo</h3><p>Tarifas claras y promos cada semana.</p></div>
+    </div>
+  </div></section>
+
+  <section id="horarios"><div class="wrap">
+    <h2>Horarios</h2>
+    <p class="sub">Calle de Ejemplo 8, centro. Trabajamos solo con cita.</p>
+    <div class="horas">
+      <div><span>Lunes a viernes</span><b>10:00 – 20:00</b></div>
+      <div><span>Sábado</span><b>10:00 – 14:00</b></div>
+      <div><span>Domingo</span><b>Cerrado</b></div>
+    </div>
+  </div></section>
+
+  <section class="opiniones"><div class="wrap">
+    <h2>Opiniones</h2>
+    <p class="sub">Opiniones de ejemplo.</p>
+    <div class="opinion"><p>«Salí como quería a la primera. Puntuales y muy amables.»</p><span>Álex · cliente habitual</span></div>
+    <div class="opinion"><p>«La mejor barba que me han hecho, y a buen precio.»</p><span>Marc · corte + barba</span></div>
+  </div></section>
+
+  <section class="reserva" id="reserva"><div class="wrap">
+    <h2>Reserva tu cita</h2>
+    <p>Escríbenos tu día y hora preferidos y te confirmamos al momento.</p>
+    <a class="boton" href="https://wa.me/376626622" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div></section>
+</main>
+
+<footer class="wrap">Proyecto de muestra. Negocio, datos y opiniones ficticios.</footer>
+<a class="wa" href="https://wa.me/376626622" target="_blank" rel="noopener">WhatsApp</a>
+
+</body>
+</html>
